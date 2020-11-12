@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <div id="app">{{price | unit}} {{price | number_format | unit}}</div>
+    <div id="app">
+      調べたい年： <input type="text" v-model="year" /><br />
+      {{year}}年は{{isUrudoshi ? "閏年です" : "閏年ではありません"}}
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="main.js"></script>
   </body>

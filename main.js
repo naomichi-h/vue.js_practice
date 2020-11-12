@@ -1,19 +1,18 @@
-//Vue.filterは、new Vueを実行するよりも前に定義する
-// Vue.filter("number_format", function (val) {
-//   return val.toLocaleString();
-// });
-
 var app = new Vue({
   el: "#app",
   data: {
-    price: 1000,
+    year: new Date().getFullYear(),
   },
-  filters: {
-    number_format: function (val) {
-      return val.toLocaleString();
-    },
-    unit: function (val) {
-      return val + "円";
+  computed: {
+    isUrudoshi: function () {
+      if (
+        (this.year % 4 == 0 && this.year % 100 != 0) ||
+        this.year % 400 == 0
+      ) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
 });
