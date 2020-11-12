@@ -1,4 +1,11 @@
 var app = new Vue({
   el: "#app",
-  data: {},
+  data: {
+    stock: 10,
+  },
+  methods: {
+    onDeleteItem: function () {
+      this.stock--;
+    },
+  },
 });
