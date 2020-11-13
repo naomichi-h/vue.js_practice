@@ -1,21 +1,27 @@
 var app = new Vue({
   el: "#app",
   data: {
-    point: { x: 0, y: 0 },
-  },
-  created: function () {
-    //イベントハンドラを登録
-    addEventListener("mousemove", this.mousemoveHandler);
-  },
-  beforeDestroy: function () {
-    removeEventListener("mousemove", this.mousemoveHandler);
+    stock: 10,
   },
   methods: {
     //イベントハンドラ
-    mousemoveHandler: function ($event) {
-      //マウスの位置でプロパティを更新
-      this.point.x = $event.clientX;
-      this.point.y = $event.clientY;
+    onDeleteItem: function () {
+      this.stock--;
+    },
+  },
+  computed: {
+    //加工したメッセージを返す算出プロパティ
+    message: function () {
+      if (this.stock == 0) {
+        return "売り切れ";
+      }
+      return "";
+    },
+  },
+  watch: {
+    //算出プロパティが変化した時呼び出されるハンドラ
+    message: function () {
+      console.log("商品のステータスが変化しました。");
     },
   },
 });
