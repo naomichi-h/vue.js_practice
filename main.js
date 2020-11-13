@@ -21,3 +21,4 @@ var app = new Vue({
     },
   },
 });
+//リモートのemail設定したので再度push
