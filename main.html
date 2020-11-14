@@ -7,11 +7,16 @@
   </head>
   <body>
     <div id="app">
-      <template v-if="stock >= 1">
-        <span class="num">残り{{stock}}個</span>
-        <button class="btn" v-on:click="onDeleteItem">削除</button>
-      </template>
-      {{message}}
+      <fieldset>
+        <legend>あなたの好きな色は？</legend>
+        <input type="color" v-model="color" /> {{color}} <br />
+        赤：<input type="range" v-model.number="red" min="0" max="255" />
+        {{red}} <br />
+        緑：<input type="range" v-model.number="green" min="0" max="255" />
+        {{green}} <br />
+        青：<input type="range" v-model.number="blue" min="0" max="255" />
+        {{blue}} <br />
+      </fieldset>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="main.js"></script>
